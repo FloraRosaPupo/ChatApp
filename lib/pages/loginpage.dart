@@ -15,8 +15,15 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(color: Colors.black),
           constraints: BoxConstraints(minHeight: sizeOf.height),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/fundo.jpg'),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.6),
+                  BlendMode.darken), // Adicionando uma opacidade de 0.6
+            ),
+          ),
           child: Center(
             child: Container(
               padding: EdgeInsets.all(40),
@@ -37,7 +44,19 @@ class _LoginPageState extends State<LoginPage> {
                       height: 32,
                     ),
                     TextFormField(
-                      decoration: InputDecoration(label: Text('Email')),
+                      obscureText: true,
+                      decoration: InputDecoration(label: Text('Senha')),
+                    ),
+                    SizedBox(
+                      height: 32,
+                    ),
+                    SizedBox(
+                      width: sizeOf.width * 0.8,
+                      height: 48,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('ENTRAR'),
+                      ),
                     ),
                   ],
                 ),
